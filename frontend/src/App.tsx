@@ -25,6 +25,8 @@ import Actualites from './pages/Actualites';
 import EspaceParent from './pages/EspaceParent';
 import Faq from './pages/Faq';
 import Contact from './pages/Contact';
+import MentionsLegales from './pages/MentionsLegales';
+import Confidentialite from './pages/Confidentialite';
 
 // Importation des pages privées (Espace utilisateur)
 import Dashboard from './pages/Dashboard';
@@ -58,6 +60,8 @@ function App() {
           <Route path="/parents" element={<><Navbar /><EspaceParent /><Footer /></>} />
           <Route path="/contact" element={<><Navbar /><Contact /><Footer /></>} />
           <Route path="/faq" element={<><Navbar /><Faq /><Footer /></>} />
+          <Route path="/mentions" element={<><Navbar /><MentionsLegales /><Footer /></>} />
+          <Route path="/confidentialite" element={<><Navbar /><Confidentialite /><Footer /></>} />
           {/* --- ROUTES PRIVÉES (DashboardLayout gère sa propre Sidebar) --- */}
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
