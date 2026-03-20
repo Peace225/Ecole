@@ -1,0 +1,72 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Importation des composants de mise en page
+import Navbar from './components/Navbar';
+import Footer from './pages/Footer'; // Vérifie bien si c'est dans /components ou /pages
+import DashboardLayout from './layouts/DashboardLayout';
+
+// Importation des pages publiques
+import Home from './pages/Home';
+import About from './pages/About'; // La page "Qui sommes-nous"
+import Login from './pages/Login';
+import Courses from './pages/Courses';
+import CourseDetail from './pages/CourseDetail';
+import Quiz from './pages/Quiz';
+import MotDuDirecteur from './pages/MotDuDirecteur';
+import MissionVision from './pages/MissionVision';
+import Ecole from './pages/Ecole';
+import ProjetEducatif from './pages/ProjetEducatif';
+import Prescolaire from './pages/Prescolaire';
+import Primaire from './pages/Primaire';
+import Secondaire from './pages/Secondaire';
+import ReglementInterieur from './pages/ReglementInterieur';
+import Admission from './pages/Admission';
+import Actualites from './pages/Actualites';
+import EspaceParent from './pages/EspaceParent';
+import Faq from './pages/Faq';
+import Contact from './pages/Contact';
+
+// Importation des pages privées (Espace utilisateur)
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-50 text-gray-900 font-sans flex flex-col">
+        <Routes>
+          {/* --- ROUTES PUBLIQUES (Navbar + Page + Footer) --- */}
+          <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
+          
+          {/* Ajout de la route "Qui sommes-nous" */}
+          <Route path="/qui-sommes-nous" element={<><Navbar /><About /><Footer /></>} />
+          
+          <Route path="/login" element={<><Navbar /><Login /><Footer /></>} />
+          <Route path="/courses" element={<><Navbar /><Courses /><Footer /></>} />
+          <Route path="/courses/:id" element={<><Navbar /><CourseDetail /><Footer /></>} />
+          <Route path="/quiz/:id" element={<><Navbar /><Quiz /><Footer /></>} />
+          <Route path="/mot-du-directeur" element={<><Navbar /><MotDuDirecteur /><Footer /></>} />
+          <Route path="/mission-vision" element={<><Navbar /><MissionVision /><Footer /></>} />
+          <Route path="/ecole" element={<><Navbar /><Ecole /><Footer /></>} />
+          <Route path="/projet-educatif" element={<><Navbar /><ProjetEducatif /><Footer /></>} />
+          <Route path="/prescolaire" element={<><Navbar /><Prescolaire /><Footer /></>} />
+          <Route path="/primaire" element={<><Navbar /><Primaire /><Footer /></>} />
+          <Route path="/secondaire" element={<><Navbar /><Secondaire /><Footer /></>} />
+          <Route path="/reglement-interieur" element={<><Navbar /><ReglementInterieur /><Footer /></>} />
+          <Route path="/admission" element={<><Navbar /><Admission /><Footer /></>} />
+          <Route path="/actualites" element={<><Navbar /><Actualites /><Footer /></>} />
+          <Route path="/parents" element={<><Navbar /><EspaceParent /><Footer /></>} />
+          <Route path="/contact" element={<><Navbar /><Contact /><Footer /></>} />
+          <Route path="/faq" element={<><Navbar /><Faq /><Footer /></>} />
+          {/* --- ROUTES PRIVÉES (DashboardLayout gère sa propre Sidebar) --- */}
+          <Route element={<DashboardLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
